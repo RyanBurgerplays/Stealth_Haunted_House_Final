@@ -1486,8 +1486,8 @@ MonoBehaviour:
   displayImageDuration: 1
   player: {fileID: 206813112}
   uiDocument: {fileID: 1171354544}
-  exitAudio: {fileID: 0}
-  caughtAudio: {fileID: 0}
+  exitAudio: {fileID: 2003272186}
+  caughtAudio: {fileID: 685073432}
 --- !u!65 &1742191712
 BoxCollider:
   m_ObjectHideFlags: 0

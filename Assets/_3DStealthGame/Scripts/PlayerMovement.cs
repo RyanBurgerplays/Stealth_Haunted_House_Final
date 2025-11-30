@@ -24,8 +24,11 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        var pos = MoveAction.ReadValue<Vector2>();
 
+
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) { walkSpeed = 3.0f; turnSpeed = 40f; m_Animator.SetBool("IsRunning", true);  }
+        else { walkSpeed = 1.0f; turnSpeed = 20f; m_Animator.SetBool("IsRunning", false); }
+            var pos = MoveAction.ReadValue<Vector2>();
         float horizontal = pos.x;
         float vertical = pos.y;
 
@@ -35,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         bool hasVerticalInput = !Mathf.Approximately(vertical, 0f);
         bool isWalking = hasHorizontalInput || hasVerticalInput;
         m_Animator.SetBool("IsWalking", isWalking);
+
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
         m_Rotation = Quaternion.LookRotation(desiredForward);
