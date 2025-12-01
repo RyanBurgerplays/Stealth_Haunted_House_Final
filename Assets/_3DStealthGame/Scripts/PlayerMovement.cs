@@ -23,15 +23,18 @@ public class PlayerMovement : MonoBehaviour
         m_Animator = GetComponent<Animator>();
         MiniMap.SetActive(false);
     }
-
-    void FixedUpdate()
+     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             canMove = !canMove;
-           // MiniMap.SetActive(true);
+            // MiniMap.SetActive(true);
             MiniMap.SetActive(!MiniMap.activeSelf);
         }
+    }
+    void FixedUpdate()
+    {
+        
 
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) { walkSpeed = 3.0f; turnSpeed = 40f; m_Animator.SetBool("IsRunning", true);  }
         else { walkSpeed = 1.0f; turnSpeed = 20f; m_Animator.SetBool("IsRunning", false); }
